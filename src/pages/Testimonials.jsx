@@ -5,7 +5,6 @@ import { FaStar } from "react-icons/fa6";
 import { FiMessageCircle } from "react-icons/fi";
 import TextAnimation from '../components/TextAnimation';
 
-// Optional: You can abstract this to reuse star rating logic
 const StarRating = ({ rating }) => (
     <div className="flex gap-1">
         {Array(5).fill(0).map((_, i) => (
@@ -22,8 +21,8 @@ const Testimonials = () => {
             <div className="max-w-7xl mx-auto">
                 <h1 className="text-6xl font-bold text-black text-center mb-16 drop-shadow-2xl flex justify-center">
                     <TextAnimation
-                        text="Words from Our Happy Clients"
-                        className="text-[40px] text-center max-w-[1100px] font-semibold mb-4"
+                        text="Words from Our  Happy Clients"
+                        className="text-[40px] text-center  font-semibold mb-4"
                     />
                 </h1>
 
@@ -31,14 +30,14 @@ const Testimonials = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
                     {testimonials.map((testimonial, index) => {
-                        const isActive = activeCard === index; // This tracks which card is hovered
+                        const isActive = activeCard === index; 
 
                         return (
                             <div
                                 key={index}
                                 className={`backdrop-blur-xl bg-white/20 border-2 border-white/30 rounded-2xl p-8 shadow-2xl relative overflow-hidden cursor-pointer transition-all duration-500 
                                     hover:bg-white hover:backdrop-blur-md hover:border-white/40 hover:scale-105 hover:shadow-3xl`}
-                                onMouseEnter={() => setActiveCard(index)} // Use index instead of 4
+                                onMouseEnter={() => setActiveCard(index)} 
                                 onMouseLeave={() => setActiveCard(null)}
                             >
                                 <div className="absolute top-6 right-6 w-4 h-4 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full opacity-60 animate-bounce" style={{ animationDelay: '0s' }}></div>
@@ -55,7 +54,7 @@ const Testimonials = () => {
                                     <div className="flex flex-col lg:flex-row lgitems-start gap-6">
                                         <div className="relative w-20 h-20 min-w-[80px]">
                                             {/* Outer circle with icon */}
-                                            <div className={`w-full h-full bg-gradient-to-r from-cyan-400 to-blue-600 rounded-full p-4 shadow-lg flex items-center justify-center transition-all duration-500 ${isActive ? 'scale-110 rotate-12 shadow-2xl' : ''}`}>
+                                            <div className={`w-full h-full bg-gradient-to-r from-yellow-400 to-orange-600 rounded-full p-4 shadow-lg flex items-center justify-center transition-all duration-500 ${isActive ? 'scale-110 rotate-12 shadow-2xl' : ''}`}>
                                                 <FiMessageCircle className="w-full h-full text-white" />
                                             </div>
 
@@ -68,7 +67,7 @@ const Testimonials = () => {
 
                                             {/* Ping ring animation */}
                                             {isActive && (
-                                                <div className="absolute inset-0 rounded-full border-2 border-cyan-400 animate-ping opacity-75" />
+                                                <div className="absolute inset-0 rounded-full border-2 border-orange-400 animate-ping opacity-75" />
                                             )}
                                         </div>
 
