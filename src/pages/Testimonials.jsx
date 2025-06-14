@@ -48,7 +48,7 @@ const Testimonials = () => {
                                 <div className="absolute top-1/2 left-4 w-2 h-2 bg-gradient-to-r from-rose-400 to-pink-500 rounded-full opacity-50 animate-ping" style={{ animationDelay: '0.3s' }}></div>
 
                                 <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-blue-500/10"></div>
-                                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600"></div>
+                                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-600"></div>
 
                                 <div className="relative z-10">
                                     <div className="flex flex-col lg:flex-row lgitems-start gap-6">
