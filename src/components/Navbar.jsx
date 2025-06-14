@@ -10,6 +10,7 @@ const Navbar = () => {
     const location = useLocation();
     const isPortfolioPage = location.pathname === '/portfolio';
     const isServicePage = location.pathname === '/services';
+    const isTestimonialPage = location.pathname === '/testimonials';
 
     useEffect(() => {
         const handleScroll = () => {
@@ -28,15 +29,15 @@ const Navbar = () => {
         <>
             <div className={`w-full h-20 fixed top-0 z-49 flex items-center justify-between transition-all duration-300 ${isScrolled ? 'bg-white shadow-lg backdrop-blur-md' : 'bg-transparent'}`}>
                 <div className='pl-6 py-2'>
-                    <Link to='/' onClick={() => scrollTo(0,0)}>
+                    <Link to='/' onClick={() => scrollTo(0, 0)}>
                         <img src={assets.tricta_logo} alt="tricta_logo" className='w-[100px] md:w-[160px] h-auto' />
                     </Link>
                 </div>
 
-                <div className={`flex gap-10 items-center transition-colors duration-300 ${isPortfolioPage || isServicePage || isScrolled ? 'text-black' : 'text-white'}`}>
-                    <Link to='/services' className='hidden md:block cursor-pointer hover:text-gray-500 transition-colors' onClick={() => scrollTo(0,0)}>Services</Link>
-                    <Link to='/our-products' className='hidden md:block cursor-pointer hover:text-gray-500 transition-colors' onClick={() => scrollTo(0,0)}>Products</Link>
-                    <Link to='/about-us' className='hidden md:block cursor-pointer hover:text-gray-500 transition-colors' onClick={() => scrollTo(0,0)}>About Us</Link>
+                <div className={`flex gap-10 items-center transition-colors duration-300 ${isPortfolioPage || isServicePage || isTestimonialPage || isScrolled ? 'text-black' : 'text-white'}`}>
+                    <Link to='/services' className='hidden md:block cursor-pointer hover:text-gray-500 transition-colors' onClick={() => scrollTo(0, 0)}>Services</Link>
+                    <Link to='/our-products' className='hidden md:block cursor-pointer hover:text-gray-500 transition-colors' onClick={() => scrollTo(0, 0)}>Products</Link>
+                    <Link to='/about-us' className='hidden md:block cursor-pointer hover:text-gray-500 transition-colors' onClick={() => scrollTo(0, 0)}>About Us</Link>
                     <div className={`p-2.5 rounded-full duration-300 ease-in cursor-pointer ${isScrolled ? 'hover:bg-black/10' : 'hover:bg-white/20 hover:backdrop-sepia-0'}`}>
                         <a href="tel:+919447318527"> <BiPhoneCall fontSize={28} /> </a>
                     </div>
@@ -130,6 +131,7 @@ const Navbar = () => {
                             <div className="w-full lg:w-100 p-8 md:p-16 flex flex-col justify-center items-center mt-20  lg:mt-0">
                                 <nav className="space-y-8">
                                     <Link to="/" onClick={toggleModal} className="block text-white text-2xl md:text-[45px] font-light hover:text-gray-300 ">Home</Link>
+                                    <Link to="/testimonials" onClick={toggleModal} className="block text-white text-2xl md:text-[45px] font-light hover:text-gray-300 ">Testimonials</Link>
                                     <Link to="/services" onClick={toggleModal} className="block text-white text-2xl md:text-[45px] font-light hover:text-gray-300 lg:hidden">Services</Link>
                                     <Link to="/our-products" onClick={toggleModal} className="block text-white text-2xl md:text-[45px] font-light hover:text-gray-300 lg:hidden">Products</Link>
                                     <Link to="/about-us" onClick={toggleModal} className="block text-white text-2xl md:text-[45px] font-light hover:text-gray-300 lg:hidden">About Us</Link>

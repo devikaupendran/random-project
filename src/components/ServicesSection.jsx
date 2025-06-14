@@ -11,8 +11,7 @@ const ServicesSection = () => {
                 <p className="max-w-[700px] text-center">When ideas dream, innovation awakens. When innovation acts, transformation begins. At Tricta Technologies, we turn bold visions into real-world solutions. Bring your ideas to life with us — where innovation meets execution.</p>
             </div>
 
-            <ServiceCardLayout services={servicesData} limit={3} /> {/* You can pass any limit or omit it */}
-
+            <ServiceCardLayout services={servicesData} limit={3} />
 
             <Link to={'/services'} className="text-center mt-10 block">
                 <button onClick={() => scrollTo(0, 0)}

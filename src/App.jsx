@@ -9,6 +9,7 @@ import Testimonials from './pages/Testimonials';
 import Products from './pages/Products';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer'
+import ServiceDetailsPage from './pages/ServiceDetailsPage';
 
 
 
@@ -23,6 +24,8 @@ const App = () => {
                 <Route path='/portfolio' element={<Portfolio />} />
                 <Route path='/about-us' element={<Aboutus />} />
                 <Route path='/contact-us' element={<Contactus />} />
+                <Route path='/testimonials' element={<Testimonials />} />
+                <Route path='/service-details' element={<ServiceDetailsPage />} />
             </Routes>
             <Footer />
         </div>

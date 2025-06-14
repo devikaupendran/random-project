@@ -544,5 +544,6 @@ export const testimonials = [
         role: "Founder, Tangerines LLC",
         content: "We've been working with Tricta for quite a long time, and we intend to continue our business relationship because of the ease to doing business with them, and ability to communicate with them at any point. Their dynamic team always comes with quick, yet robust solutions whenever a requirement arises, and hence we don't think we need another partner for any of our IT development needs, anytime soon.",
         rating: 5
-    }
+    },
+    
 ];

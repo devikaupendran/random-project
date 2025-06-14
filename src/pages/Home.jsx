@@ -7,7 +7,7 @@ import ServicesSection from '../components/ServicesSection'
 import PortfolioSection from '../components/PortfolioSection'
 import Innovation from '../components/Innovation'
 import Project from '../components/Project'
-import Testimonials from '../components/Testimonials'
+// import TestimonialsSection from '../components/TestimonialsSection'
 
 const Home = () => {
     return (
@@ -24,7 +24,7 @@ const Home = () => {
                 <Project />
                 <PortfolioSection />
                 <Innovation />
-                <Testimonials/>
+                {/* <TestimonialsSection/> */}
             </div>
 
         </div>
