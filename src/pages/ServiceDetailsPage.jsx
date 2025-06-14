@@ -74,47 +74,6 @@ const ServiceDetailsPage = () => {
         </button>
       </div>
 
-      {/* Footer Section */}
-      <footer className="bg-gray-900 text-white py-12 px-6">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-10">
-          <div>
-            <h4 className="text-2xl font-bold mb-2">Ready to <span className="text-orange-500">Get Started?</span></h4>
-            <p className="text-sm mb-4 max-w-sm">
-              Experience the future of business operations with Tricta—AI-powered automation delivering
-              increased speed, security, and adaptability, driving unmatched productivity gains.
-            </p>
-            <button className="bg-orange-500 px-5 py-2 rounded text-white font-semibold">Get in touch</button>
-          </div>
-
-          <div>
-            <h5 className="font-bold mb-2">Location</h5>
-            <p className="text-sm">
-              Module No-7 (a), Gayatri Top Floor,<br />
-              Technopark Campus<br />
-              Trivandrum 695581
-            </p>
-          </div>
-
-          <div>
-            <h5 className="font-bold mb-2">Contact Us</h5>
-            <div className="flex space-x-4 text-xl">
-              <BsFacebook />
-              <BsInstagram />
-              <BsLinkedin />
-              <BsMessenger />
-            </div>
-          </div>
-        </div>
-        <div className="mt-8 border-t border-gray-700 pt-4 text-center text-sm">
-          <div className="mb-2">© 2025 Tricta Technologies. All Rights Reserved.</div>
-          <div className="space-x-4">
-            <a href="#" className="hover:underline">Services</a>
-            <a href="#" className="hover:underline">Products</a>
-            <a href="#" className="hover:underline">About us</a>
-            <a href="#" className="hover:underline">Portfolio</a>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };
