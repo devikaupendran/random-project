@@ -16,9 +16,7 @@ import Envirotrack from './pages/Envirotrack';
 import FleetManagement from './pages/FleetManagement';
 import AutomatedWeatherStation from './pages/AutomatedWeatherStation';
 import DigitalSignage from './pages/DigitalSignage';
-import ECommerce from './pages/Ecommerce';
-
-
+import Ecommerce from './pages/Ecommerce';
 
 const App = () => {
     return (
@@ -39,7 +37,7 @@ const App = () => {
                 <Route path='/fleet-management' element={<FleetManagement />} />
                 <Route path='/automated-weather-station' element={<AutomatedWeatherStation />} />
                 <Route path='/digital-signage' element={<DigitalSignage />} />
-                <Route path='/ecommerce' element={<ECommerce />} />
+                <Route path='/ecommerce' element={<Ecommerce />} />
             </Routes>
             <Footer />
         </div>

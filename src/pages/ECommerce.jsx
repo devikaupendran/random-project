@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ShoppingCart, Brain, Search, MessageCircle, DollarSign, Shield, TrendingUp, Users, Package, Bot, Sparkles, ChevronRight, PlayCircle, Zap } from 'lucide-react';
 
-export default function ECommerce() {
+export default function Ecommerce() {
     const [isVisible, setIsVisible] = useState(false);
     const [activeFeature, setActiveFeature] = useState(0);
     const [animationPhase, setAnimationPhase] = useState(0);
