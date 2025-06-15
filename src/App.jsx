@@ -15,6 +15,8 @@ import Helpybo from './pages/Helpybo';
 import Envirotrack from './pages/Envirotrack';
 import FleetManagement from './pages/FleetManagement';
 import AutomatedWeatherStation from './pages/AutomatedWeatherStation';
+import DigitalSignage from './pages/DigitalSignage';
+import ECommerce from './pages/Ecommerce';
 
 
 
@@ -36,6 +38,8 @@ const App = () => {
                 <Route path='/envirotrack' element={<Envirotrack />} />
                 <Route path='/fleet-management' element={<FleetManagement />} />
                 <Route path='/automated-weather-station' element={<AutomatedWeatherStation />} />
+                <Route path='/digital-signage' element={<DigitalSignage />} />
+                <Route path='/ecommerce' element={<ECommerce />} />
             </Routes>
             <Footer />
         </div>

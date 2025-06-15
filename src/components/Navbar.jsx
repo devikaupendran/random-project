@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { assets } from '../assets/assets';
 import { BiPhoneCall, BiMenu } from "react-icons/bi";
 import { FaCaretDown } from "react-icons/fa";
-import { Navigate } from 'react-router-dom';
+import SpinnerAnimation from './SpinnerAnimation';
 
 const Navbar = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -15,16 +15,17 @@ const Navbar = () => {
     const isPortfolioPage = location.pathname === '/portfolio';
     const isServicePage = location.pathname === '/services';
     const isTestimonialPage = location.pathname === '/testimonials';
+    const isEcommercePage = location.pathname === '/ecommerce';
 
     const productItems = [
         { title: 'HelpyPo', link: '/helpybo' },
         { title: 'EnviroTrack', link: '/envirotrack' },
-        { title: 'AI Enabled Digital Signage', link: '/' },
+        { title: 'AI Enabled Digital Signage', link: '/digital-signage      ' },
         { title: 'Fleet Management System', link: '/fleet-management' },
         { title: 'Automated Weather Station', link: '/automated-weather-station' },
         { title: 'Dine Alert', link: '/' },
         { title: 'Clinic Management', link: '/' },
-        { title: 'Ecommerce', link: '/' },
+        { title: 'Ecommerce', link: '/ecommerce' },
         { title: 'Convo AI', link: '/' },
     ];
 
@@ -49,7 +50,7 @@ const Navbar = () => {
                     </Link>
                 </div>
 
-                <div className={`flex gap-10 items-center transition-colors duration-300 ${isPortfolioPage || isServicePage || isTestimonialPage || isScrolled ? 'text-black' : 'text-white'}`}>
+                <div className={`flex gap-10 items-center transition-colors duration-300 ${isEcommercePage || isPortfolioPage || isServicePage || isTestimonialPage || isScrolled ? 'text-black' : 'text-white'}`}>
                     <Link to='/services' className='hidden md:block cursor-pointer transition-colors hover:bg-white/20 hover:backdrop-sepia-0 p-3 rounded-[30px]' >Services</Link>
                     <div className='relative hidden md:block'>
                         <div
@@ -127,6 +128,8 @@ const Navbar = () => {
                                         <div><div className="text-5xl md:text-6xl font-light text-white mb-4">7+</div><p className="text-gray-400 text-sm md:text-base">Proven expertise delivering reliable and future-ready digital solutions</p></div>
                                     </div>
                                 </div>
+
+                               <SpinnerAnimation/>
                             </div>
 
                             {/* ----------------------------- MOBILE NAV MENU ----------------------------- */}

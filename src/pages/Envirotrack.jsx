@@ -75,7 +75,7 @@ export default function Envirotrack() {
     ];
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 text-white overflow-hidden">
+        <div className="min-h-screen pt-20 bg-gradient-to-br from-blue-900 via-cyan-800 to-black/80 text-white overflow-hidden">
 
             {/* Header */}
             <header className="relative z-10 p-6">
@@ -84,8 +84,8 @@ export default function Envirotrack() {
                         <CiMonitor className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                        <h1 className="text-3xl font-bold">Enviro</h1>
-                        <h2 className="text-3xl font-bold -mt-2">Track</h2>
+                        <h1 className="text-3xl font-bold">EnviroTrack</h1>
+                        {/* <h2 className="text-3xl font-bold -mt-2"></h2> */}
                     </div>
                 </div>
             </header>
@@ -237,7 +237,7 @@ export default function Envirotrack() {
           to { opacity: 1; transform: translateY(0); }
         }
         .animate-fade-in {
-          animation: fade-in 0.6s ease-out forwards;
+          animation: fade-in 1s ease-out forwards;
         }
         .delay-500 {
           animation-delay: 0.5s;

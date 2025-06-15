@@ -56,7 +56,7 @@ export default function Helpybo() {
     ];
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white overflow-hidden">
+        <div className="min-h-screen pt-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white overflow-hidden">
 
             {/* Header */}
             <header className="relative z-10 p-6">
@@ -64,7 +64,7 @@ export default function Helpybo() {
                     <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center">
                         <FiMessageCircle className="w-6 h-6 text-white" />
                     </div>
-                    <span className="text-2xl font-bold">helpybo</span>
+                    <span className="text-2xl font-bold">Helpybo</span>
                 </div>
             </header>
 
@@ -125,13 +125,7 @@ export default function Helpybo() {
                                     Request a demo and see how Helpybo can transform your customer engagement.
                                 </h3>
                                 <div className="flex flex-col sm:flex-row gap-4">
-                                    <button className="flex-1 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg">
-                                        Request Demo
-                                    </button>
-                                    <div className="flex items-center space-x-2 text-gray-300">
-                                        <CiPhone className="w-4 h-4" />
-                                        <span className="font-mono">+91 9447075374</span>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -175,17 +169,7 @@ export default function Helpybo() {
                     </div>
                 </div>
 
-                {/* Bottom Section */}
-                <div className="mt-16 text-center">
-                    <div className="flex items-center justify-center space-x-3 mb-4">
-                        <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
-                            <span className="text-white font-bold text-sm">T</span>
-                        </div>
-                        <span className="text-gray-400">tricta</span>
-                        <span className="text-xs text-gray-500">TECHNOLOGIES</span>
-                    </div>
-                    <p className="text-gray-400 text-sm">www.tricta.com</p>
-                </div>
+
             </main>
 
             {/* Custom CSS for animations */}

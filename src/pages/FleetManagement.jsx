@@ -183,7 +183,7 @@ export default function FleetManagement() {
                                 </div>
 
                                 {/* Mobile App Mockup */}
-                                <div className="absolute top-4 -left-8 w-16 h-28 bg-gradient-to-b from-gray-800 to-gray-900 rounded-lg border border-gray-600 shadow-xl opacity-80">
+                                <div className="absolute hidden md:block top-4 -left-10 w-16 h-28 bg-gradient-to-b from-gray-800 to-gray-900 rounded-lg border border-gray-600 shadow-xl opacity-80">
                                     <div className="w-full h-4 bg-gradient-to-r from-orange-400 to-teal-400 rounded-t-lg"></div>
                                     <div className="p-2 space-y-1">
                                         <div className="w-full h-1 bg-white/30 rounded"></div>
@@ -269,7 +269,7 @@ export default function FleetManagement() {
                   to { opacity: 1; transform: translateY(0); }
                 }
                 .animate-fade-in {
-                  animation: fade-in 0.6s ease-out forwards;
+                  animation: fade-in 1s ease-out forwards;
                 }
                 .scale-102 {
                   transform: scale(1.02);

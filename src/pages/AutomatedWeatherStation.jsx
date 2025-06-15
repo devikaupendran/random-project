@@ -1,262 +1,242 @@
 import React, { useState, useEffect } from 'react';
-import { CiBatteryCharging } from "react-icons/ci";
-import { FaWifi, FaSignal } from "react-icons/fa";
-import { FaMapMarkerAlt } from "react-icons/fa";
-import { MdNavigation } from "react-icons/md";
-import { FaRegClock } from "react-icons/fa";
+import { CiCloud, CiGlobe, CiSettings } from "react-icons/ci";
+import { IoShield } from "react-icons/io5";
+import { FaEye, FaLeaf } from "react-icons/fa";
+import { FiZap, FiAlertTriangle, FiSmartphone } from "react-icons/fi";
 
 export default function AutomatedWeatherStation() {
+    const [isVisible, setIsVisible] = useState(false);
+    const [activeFeature, setActiveFeature] = useState(0);
+
+    useEffect(() => {
+        setIsVisible(true);
+        const interval = setInterval(() => {
+            setActiveFeature(prev => (prev + 1) % 12);
+        }, 3000);
+        return () => clearInterval(interval);
+    }, []);
+
     const features = [
-        "Real-Time Weather Data",
-        "Early Warning Systems",
-        "Micro climate Monitoring",
-        "Cost-Effectiveness",
-        "High Accuracy & Reliability",
-        "Integration with AI & Predictive Analytics",
-        "Remote Monitoring",
-        "Sustainable & Scalable",
-        "Disaster Preparedness & Risk Management",
-        "Community & Agriculture Benefits",
-        "Minimal Human Intervention",
-        "Versatile Applications"
+        {
+            icon: <CiCloud className="w-6 h-6" />,
+            title: "Real-Time Weather Data",
+            description: "Continuous monitoring and instant access to live meteorological information with high precision sensors.",
+            color: "from-blue-500 to-cyan-500"
+        },
+        {
+            icon: <FiAlertTriangle className="w-6 h-6" />,
+            title: "Early Warning Systems",
+            description: "Advanced alert mechanisms for severe weather conditions to ensure safety and preparedness.",
+            color: "from-red-500 to-orange-500"
+        },
+        {
+            icon: <FaEye className="w-6 h-6" />,
+            title: "Micro Climate Monitoring",
+            description: "Detailed analysis of localized weather patterns for precise environmental assessment.",
+            color: "from-green-500 to-emerald-500"
+        },
+        {
+            icon: <FiZap className="w-6 h-6" />,
+            title: "Cost-Effectiveness",
+            description: "Optimized energy consumption and low maintenance requirements for sustainable operations.",
+            color: "from-yellow-500 to-amber-500"
+        },
+        {
+            icon: <IoShield className="w-6 h-6" />,
+            title: "High Accuracy & Reliability",
+            description: "Industrial-grade sensors ensuring consistent and precise measurements in all conditions.",
+            color: "from-purple-500 to-violet-500"
+        },
+        {
+            icon: <CiSettings className="w-6 h-6" />,
+            title: "AI & Predictive Analytics",
+            description: "Machine learning algorithms for weather forecasting and pattern recognition capabilities.",
+            color: "from-indigo-500 to-blue-500"
+        },
+        {
+            icon: <FiSmartphone className="w-6 h-6" />,
+            title: "Remote Monitoring",
+            description: "Access data from anywhere with cloud connectivity and mobile application support.",
+            color: "from-teal-500 to-cyan-500"
+        },
+        {
+            icon: <FaLeaf className="w-6 h-6" />,
+            title: "Sustainable & Scalable",
+            description: "Eco-friendly design with solar power options and modular expansion capabilities.",
+            color: "from-green-500 to-lime-500"
+        },
+        {
+            icon: <IoShield className="w-6 h-6" />,
+            title: "Disaster Preparedness",
+            description: "Critical infrastructure for emergency response and risk management systems.",
+            color: "from-red-500 to-pink-500"
+        },
+        {
+            icon: <FaLeaf className="w-6 h-6" />,
+            title: "Agriculture Benefits",
+            description: "Specialized features for farming communities and crop management optimization.",
+            color: "from-green-600 to-emerald-600"
+        },
+        {
+            icon: <CiSettings className="w-6 h-6" />,
+            title: "Minimal Human Intervention",
+            description: "Fully automated operations with self-calibration and maintenance alerts.",
+            color: "from-gray-500 to-slate-500"
+        },
+        {
+            icon: <CiGlobe className="w-6 h-6" />,
+            title: "Versatile Applications",
+            description: "Suitable for research, aviation, marine, agriculture, and urban planning sectors.",
+            color: "from-orange-500 to-red-500"
+        }
     ];
-    const [sensorData, setSensorData] = useState({
-        temperature: 0,
-        humidity: 0,
-        windSpeed: 0,
-        windDirection: 'N/A',
-        location: 'Detecting location...',
-        stationId: 'AWS-LOC-2024-001'
-    });
-
-    const [currentTime, setCurrentTime] = useState(new Date());
-    const [locationStatus, setLocationStatus] = useState('detecting'); // detecting, found, error
-    const [userCoords, setUserCoords] = useState(null);
-
-    useEffect(() => {
-        // Update time every second
-        const timeTimer = setInterval(() => {
-            setCurrentTime(new Date());
-        }, 1000);
-
-        return () => clearInterval(timeTimer);
-    }, []);
-
-    useEffect(() => {
-        // Get user's location
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(
-                async (position) => {
-                    const { latitude, longitude } = position.coords;
-                    setUserCoords({ lat: latitude, lon: longitude });
-
-                    try {
-                        // Get location name from reverse geocoding
-                        const locationResponse = await fetch(
-                            `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`
-                        );
-                        const locationData = await locationResponse.json();
-
-                        const cityName = locationData.city || locationData.locality || 'Unknown City';
-                        const countryName = locationData.countryName || 'Unknown Country';
-                        const locationString = `${cityName}, ${countryName}`;
-
-                        // Simulate getting weather data (in a real app, you'd use a weather API)
-                        // For demo purposes, generating realistic data based on location
-                        const baseTemp = 20 + Math.random() * 15; // 20-35°C range
-                        const baseHumidity = 40 + Math.random() * 40; // 40-80% range
-                        const baseWindSpeed = 2 + Math.random() * 8; // 2-10 m/s range
-                        const windDirections = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
-                        const windDirection = windDirections[Math.floor(Math.random() * windDirections.length)];
-
-                        setSensorData(prev => ({
-                            ...prev,
-                            temperature: baseTemp,
-                            humidity: baseHumidity,
-                            windSpeed: baseWindSpeed,
-                            windDirection: windDirection,
-                            location: locationString,
-                            stationId: `AWS-${cityName.substring(0, 3).toUpperCase()}-2024-001`
-                        }));
-
-                        setLocationStatus('found');
-
-                        // Start real-time data simulation after location is found
-                        const dataTimer = setInterval(() => {
-                            setSensorData(prev => ({
-                                ...prev,
-                                temperature: Math.max(prev.temperature - 5, Math.min(prev.temperature + 5, prev.temperature + (Math.random() - 0.5) * 0.5)),
-                                humidity: Math.max(30, Math.min(90, prev.humidity + (Math.random() - 0.5) * 2)),
-                                windSpeed: Math.max(1, Math.min(15, prev.windSpeed + (Math.random() - 0.5) * 1))
-                            }));
-                        }, 3000);
-
-                        return () => clearInterval(dataTimer);
-
-                    } catch (error) {
-                        console.error('Error fetching location data:', error);
-                        setSensorData(prev => ({
-                            ...prev,
-                            location: `Lat: ${latitude.toFixed(2)}, Lon: ${longitude.toFixed(2)}`,
-                            temperature: 22 + Math.random() * 8,
-                            humidity: 50 + Math.random() * 30,
-                            windSpeed: 3 + Math.random() * 5,
-                            windDirection: 'SW'
-                        }));
-                        setLocationStatus('found');
-                    }
-                },
-                (error) => {
-                    console.error('Geolocation error:', error);
-                    setLocationStatus('error');
-                    // Fallback to default data
-                    setSensorData(prev => ({
-                        ...prev,
-                        location: 'Location Access Denied',
-                        temperature: 23.5,
-                        humidity: 65,
-                        windSpeed: 4.2,
-                        windDirection: 'NW'
-                    }));
-                },
-                {
-                    enableHighAccuracy: true,
-                    timeout: 10000,
-                    maximumAge: 300000 // 5 minutes
-                }
-            );
-        } else {
-            setLocationStatus('error');
-            setSensorData(prev => ({
-                ...prev,
-                location: 'Geolocation Not Supported',
-                temperature: 23.5,
-                humidity: 65,
-                windSpeed: 4.2,
-                windDirection: 'NW'
-            }));
-        }
-    }, []);
-
-    // Convert wind speed to different units for display
-    const windSpeedKmh = (sensorData.windSpeed * 3.6).toFixed(1);
-    const windSpeedMph = (sensorData.windSpeed * 2.237).toFixed(1);
-
-    const getLocationStatusColor = () => {
-        switch (locationStatus) {
-            case 'detecting': return 'text-yellow-400';
-            case 'found': return 'text-green-400';
-            case 'error': return 'text-red-400';
-            default: return 'text-gray-400';
-        }
-    };
-
-    const getLocationStatusIcon = () => {
-        switch (locationStatus) {
-            case 'detecting': return <MdNavigation className="w-4 h-4 animate-spin" />;
-            case 'found': return <FaMapMarkerAlt className="w-4 h-4" />;
-            case 'error': return <FaMapMarkerAlt className="w-4 h-4" />;
-            default: return <FaMapMarkerAlt className="w-4 h-4" />;
-        }
-    };
-
 
     return (
-        <div className="min-h-screen bg-gradient-to-br pt-30 from-slate-900 via-blue-900 to-indigo-900 text-white p-6">
-            <div className="max-w-6xl mx-auto">
-                <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/20 shadow-2xl">
-                    <div className="flex justify-between items-center mb-6">
-                        <div>
-                            <h2 className="text-2xl font-bold mb-2">Weather Station Overview</h2>
-                            <div className="flex items-center space-x-4 text-sm">
-                                <div className="flex items-center space-x-2 bg-white/10 px-3 py-2 rounded-lg backdrop-blur-sm">
-                                    <div className={getLocationStatusColor()}>
-                                        {getLocationStatusIcon()}
-                                    </div>
-                                    <span>Station ID: {sensorData.stationId}</span>
-                                </div>
-                                <div className="flex items-center space-x-2 bg-white/10 px-3 py-2 rounded-lg backdrop-blur-sm">
-                                    <FaRegClock className="w-4 h-4 text-blue-400" />
-                                    <span>{currentTime.toLocaleTimeString()}</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                            <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-                            <span className="text-sm text-green-400">Active</span>
-                        </div>
-                    </div>
-
-                    {/* Location and Current Conditions */}
-                    <div className="mb-6 bg-white/5 rounded-lg p-4">
-                        <div className="flex items-center justify-between">
-                            <div className="flex items-center space-x-3">
-                                <div className={getLocationStatusColor()}>
-                                    {getLocationStatusIcon()}
-                                </div>
-                                <div>
-                                    <span className="text-lg font-medium">{sensorData.location}</span>
-                                    {userCoords && (
-                                        <div className="text-sm text-gray-400 mt-1">
-                                            {userCoords.lat.toFixed(4)}°, {userCoords.lon.toFixed(4)}°
-                                        </div>
-                                    )}
-                                </div>
-                            </div>
-                            <div className="text-right">
-                                <div className="text-sm text-gray-300">Wind Direction</div>
-                                <div className="text-xl font-bold text-cyan-400">{sensorData.windDirection}</div>
-                            </div>
-                        </div>
-                        <div className="flex justify-between items-center mt-4 pt-4 border-t border-white/10">
-                            <div className="text-center">
-                                <div className="text-sm text-gray-300">Wind Speed</div>
-                                <div className="text-lg font-bold text-cyan-400">
-                                    {sensorData.windSpeed.toFixed(1)} m/s
-                                </div>
-                                <div className="text-xs text-gray-400">
-                                    {windSpeedKmh} km/h | {windSpeedMph} mph
-                                </div>
-                            </div>
-                            <div className="text-center">
-                                <div className="text-sm text-gray-300">Temperature</div>
-                                <div className="text-lg font-bold text-orange-400">
-                                    {sensorData.temperature.toFixed(1)}°C
-                                </div>
-                                <div className="text-xs text-gray-400">
-                                    {((sensorData.temperature * 9 / 5) + 32).toFixed(1)}°F
-                                </div>
-                            </div>
-                            <div className="text-center">
-                                <div className="text-sm text-gray-300">Humidity</div>
-                                <div className="text-lg font-bold text-blue-400">
-                                    {sensorData.humidity.toFixed(0)}%
-                                </div>
-                                <div className="text-xs text-gray-400">
-                                    Relative Humidity
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* 3D Weather Station Model */}
-                    <div className="relative flex items-center justify-center">
-                        {/* Background grid */}
-                        <div className="absolute inset-0 opacity-20">
-                            <svg className="w-full h-full">
-                                <defs>
-                                    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-                                        <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#60a5fa" strokeWidth="0.5" />
-                                    </pattern>
-                                </defs>
-                                <rect width="100%" height="100%" fill="url(#grid)" />
-                            </svg>
-                        </div>
-                    </div>
-
-                   
-                </div>
+        <div className="min-h-screen pt-20 bg-gradient-to-br from-gray-900 via-blue-950 to-cyan-900 text-white overflow-hidden">
+            {/* Background Effects */}
+            <div className="absolute inset-0 opacity-20">
+                <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-cyan-900/50 to-transparent"></div>
             </div>
+
+            {/* Header */}
+            <header className="relative z-10 p-6">
+                <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-white/20 to-white/10 rounded-xl flex items-center justify-center backdrop-blur-sm">
+                        <CiCloud className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                        <h1 className="text-5xl font-bold tracking-wider">AUTOMATED</h1>
+                        <div className="flex items-center space-x-2 -mt-2">
+                            <span className="text-lg font-light">WEATHER</span>
+                            <span className="text-lg font-light">STATION</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            {/* Main Content */}
+            <main className="relative z-10 max-w-7xl mx-auto px-6 py-8">
+                <div className="flex flex-col gap-12">
+
+                    <div className="flex justify-center">
+                        <div className="relative">
+                            {/* Main Station Structure */}
+                            <div className="bg-white/90 w-32 h-20 rounded-lg shadow-xl relative">
+                                {/* Ventilation Slits */}
+                                <div className="absolute inset-x-4 inset-y-3 space-y-1">
+                                    {Array.from({ length: 6 }).map((_, i) => (
+                                        <div key={i} className="w-full h-1 bg-gray-400 rounded opacity-60"></div>
+                                    ))}
+                                </div>
+
+                                {/* Status LED */}
+                                <div className="absolute top-2 right-2 w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                            </div>
+
+                            {/* Wind Vane */}
+                            <div className="absolute -top-8 right-8 flex flex-col items-center">
+                                <div className="w-6 h-1 bg-red-500 rounded-full animate-pulse"></div>
+                                <div className="w-px h-4 bg-gray-400 mt-1"></div>
+                            </div>
+
+                            {/* Anemometer */}
+                            <div className="absolute -top-6 -right-6">
+                                <div className="w-8 h-8 relative animate-spin">
+                                    <div className="absolute top-0 left-1/2 w-px h-3 bg-white transform -translate-x-1/2"></div>
+                                    <div className="absolute top-1/2 right-0 w-3 h-px bg-white transform -translate-y-1/2"></div>
+                                    <div className="absolute bottom-0 left-1/2 w-px h-3 bg-white transform -translate-x-1/2"></div>
+                                    <div className="absolute top-1/2 left-0 w-3 h-px bg-white transform -translate-y-1/2"></div>
+                                    <div className="absolute inset-0 flex items-center justify-center">
+                                        <div className="w-1 h-1 bg-gray-400 rounded-full"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Solar Panel */}
+                            <div className="absolute -top-4 -left-8 w-12 h-8 bg-blue-800 rounded border border-blue-400 grid grid-cols-3 grid-rows-2 gap-px p-1">
+                                {Array.from({ length: 6 }).map((_, i) => (
+                                    <div key={i} className="bg-blue-700 rounded-sm"></div>
+                                ))}
+                            </div>
+
+                            {/* Rain Gauge */}
+                            <div className="absolute top-8 -left-12 w-4 h-8 bg-gray-400 rounded-t-full">
+                                <div className="absolute top-1 inset-x-1 h-1 bg-blue-400 rounded-t-full opacity-60"></div>
+                            </div>
+
+                            {/* Signal Waves */}
+                            <div className="absolute -top-4 left-4">
+                                <div className="w-3 h-3 border border-cyan-400 rounded-full animate-ping opacity-40"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Features Section */}
+                    <div className={`order-2 lg:order-none transform transition-all duration-1000 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
+                        <div className="space-y-8">
+                            <div className="flex justify-center">
+                                <p className="text-xl text-white/90 leading-relaxed font-light xl:max-w-[700px] text-center">
+                                    Automatic Weather Stations (AWS) are versatile systems designed to measure and monitor various meteorological parameters. They are widely used in a range of industries and applications due to their ability to provide real-time and accurate weather data.
+                                </p>
+                            </div>
+
+                            {/* Features Grid */}
+                            <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
+                                {features.map((feature, index) => (
+                                    <div
+                                        key={index}
+                                        onMouseEnter={() => setActiveFeature(index)}
+                                        className={`p-4 rounded-xl border backdrop-blur-sm transform transition-all duration-300 cursor-pointer 
+                                            ${activeFeature === index
+                                                ? 'bg-white/20 border-white/40 scale-105 shadow-xl'
+                                                : 'bg-white/10 border-white/20 hover:bg-white/15 hover:scale-105 hover:shadow-lg'
+                                            }`}
+                                    >
+                                        <div className="flex items-start space-x-4">
+                                            <div className="flex-shrink-0">
+                                                <span className="text-2xl font-bold text-white/60">
+                                                    {String(index + 1).padStart(2, '0')}.
+                                                </span>
+                                            </div>
+                                            <div className="flex flex-col xl:flex-row items-start space-x-3 flex-1">
+                                                <div className={`p-2 rounded-lg bg-gradient-to-r ${feature.color} flex-shrink-0 shadow-md`}>
+                                                    {feature.icon}
+                                                </div>
+                                                <div className="flex-1">
+                                                    <h3 className="font-bold text-white mb-1 text-lg">{feature.title}</h3>
+                                                    <p className="text-sm text-white/80 leading-relaxed">{feature.description}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </main>
+
+            {/* Custom CSS for animations */}
+            <style jsx>{`
+                @keyframes fade-in {
+                    from { opacity: 0; transform: translateY(10px); }
+                    to { opacity: 1; transform: translateY(0); }
+                }
+                @keyframes spin-slow {
+                    from { transform: rotate(0deg); }
+                    to { transform: rotate(360deg); }
+                }
+                .animate-fade-in {
+                    animation: fade-in 0.6s ease-out forwards;
+                }
+                .animate-spin-slow {
+                    animation: spin-slow 8s linear infinite;
+                }
+                .scale-102 {
+                    transform: scale(1.02);
+                }
+            `}</style>
         </div>
     );
 }
