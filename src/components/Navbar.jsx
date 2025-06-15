@@ -87,7 +87,7 @@ const Navbar = () => {
 
             {
                 isModalOpen && (
-                    <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm overflow-y-scroll">
+                    <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm overflow-x-hidden overflow-y-scroll">
                         <style>
                             {`
                             @keyframes float-orange { 0%, 100% { transform: translate(0, 0) scale(1); } 25% { transform: translate(30px, -20px) scale(1.1); } 50% { transform: translate(-20px, 30px) scale(0.9); } 75% { transform: translate(20px, 20px) scale(1.05); } }
@@ -102,10 +102,10 @@ const Navbar = () => {
                         </style>
 
                         <div className="absolute inset-0 xl:overflow-hidden">
-                            <div className="absolute w-96 h-96 bg-orange-400/40 rounded-full blur-3xl float-orange" style={{ top: '20%', left: '0%' }}></div>
-                            <div className="absolute w-80 h-80 bg-blue-500/35 rounded-full blur-3xl float-blue" style={{ top: '60%', right: '15%' }}></div>
-                            <div className="absolute w-74 h-74 bg-orange-400/35 rounded-full blur-2xl float-orange-2" style={{ bottom: '7%', left: '73%' }}></div>
-                            <div className="absolute w-72 h-72 bg-blue-400/30 rounded-full blur-2xl float-blue-2" style={{ top: '5%', left: '0%' }}></div>
+                            <div className="absolute w-96 h-96 bg-orange-400/40 rounded-full blur-3xl float-orange hidden xl:block" style={{ top: '20%', left: '0%' }}></div>
+                            <div className="absolute w-80 h-80 bg-blue-500/35 rounded-full blur-3xl float-blue hidden xl:block" style={{ top: '60%', right: '15%' }}></div>
+                            <div className="absolute w-74 h-74 bg-orange-400/35 rounded-full blur-2xl float-orange-2 hidden xl:block" style={{ bottom: '7%', left: '73%' }}></div>
+                            <div className="absolute w-72 h-72 bg-blue-400/30 rounded-full blur-2xl float-blue-2 hidden xl:block" style={{ top: '5%', left: '0%' }}></div>
                         </div>
 
                         <div className="w-full h-full relative flex z-10 flex-col lg:flex-row">
