@@ -160,7 +160,7 @@ const Footer = () => {
 
                     {/* Logo - Center */}
                     <div className="flex flex-col items-center">
-                        <img src={assets.tricta_logo} alt="Tricta Logo" className='w-40' />
+                        <img src={assets.tricta_logo} alt="Tricta Logo" className='w-40 xl:w-60' />
                     </div>
 
                     {/* Contact - Right */}

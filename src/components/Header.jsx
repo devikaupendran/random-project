@@ -11,7 +11,7 @@ const Header = () => {
                     className='w-full h-full object-cover'></video>
 
                 {/* Black Overlay */}
-                <div className='absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10'></div>
+                <div className='absolute top-0 left-0 w-full h-full bg-black opacity-70 z-10'></div>
 
                 {/* Text Content */}
                 <div className='absolute top-3/5 left-9 md:left-22 md:pl-30 w-max text-white flex flex-col gap-3 md:gap-5 z-20 custom-header tracking-wider'>

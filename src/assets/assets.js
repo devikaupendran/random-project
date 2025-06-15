@@ -1,5 +1,5 @@
-import landingPageVideo from '../assets/videos/landingVideo.mp4'
-import tricta_logo from '../assets/images/logo/tricta_logo.svg'
+import landingPageVideo from '../assets/videos/landingVideo-low.mp4'
+import tricta_logo from '../assets/images/logo/tricta_logo.png'
 import project from '../assets/images/project.svg'
 import robot from '../assets/images/robot.png'
 import contactBanner from '../assets/images/contactBanner.jpg'
