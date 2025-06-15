@@ -13,6 +13,8 @@ import ServiceDetailsPage from './pages/ServiceDetailsPage';
 import ScrollToTop from './components/ScrollToTop';
 import Helpybo from './pages/Helpybo';
 import Envirotrack from './pages/Envirotrack';
+import FleetManagement from './pages/FleetManagement';
+import AutomatedWeatherStation from './pages/AutomatedWeatherStation';
 
 
 
@@ -32,6 +34,8 @@ const App = () => {
                 <Route path='/service-details' element={<ServiceDetailsPage />} />
                 <Route path='/helpybo' element={<Helpybo />} />
                 <Route path='/envirotrack' element={<Envirotrack />} />
+                <Route path='/fleet-management' element={<FleetManagement />} />
+                <Route path='/automated-weather-station' element={<AutomatedWeatherStation />} />
             </Routes>
             <Footer />
         </div>

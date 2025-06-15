@@ -422,8 +422,7 @@ export const servicesData = [
         about: 'At Tricta Technologies, we work closely with you to design and develop mobile solutions that align with your vision and goals. Whether you’re enhancing customer engagement or streamlining internal processes, we’re here to support you every step of the way.',
         image: mobileDevelopmentImage,
         height: 'h-auto',
-        animation1: animationSettings.fadeInTopToBottom,
-        animation2: animationSettings.fadeInBottomToTop,
+        animation1: animationSettings.fadeInBottomToTop,
     },
     {
         id: 2,
@@ -432,8 +431,7 @@ export const servicesData = [
         about: 'At Tricta Technologies, we work closely with you to create web solutions that reflect your vision and support your business objectives. From improving user experiences to streamlining workflows, we’re committed to delivering applications that grow with you and add lasting value.',
         image: webDevelopmentImage,
         height: 'h-auto',
-        animation1: animationSettings.fadeInTopToBottom,
-        animation2: animationSettings.fadeInBottomToTop,
+        animation1: animationSettings.fadeInBottomToTop,
     },
     {
         id: 3,
@@ -442,8 +440,7 @@ export const servicesData = [
         about: 'At Tricta Technologies, we build secure and scalable eCommerce platforms tailored to your business needs. From smooth checkout experiences to seamless payment integration, our solutions are designed to enhance usability and drive growth. We focus on delivering reliable, user-friendly systems that help you grow your online presence with confidence and ease.',
         image: ecommerceSolution,
         height: 'h-[400px]',
-        animation1: animationSettings.fadeInTopToBottom,
-        animation2: animationSettings.fadeInBottomToTop,
+        animation1: animationSettings.fadeInBottomToTop,
     },
     {
         id: 4,
@@ -452,8 +449,7 @@ export const servicesData = [
         about: 'At Tricta Technologies, we help you connect with your audience through data-driven, results-focused digital marketing strategies. From SEO and content creation to social media and paid campaigns, we tailor each approach to meet your unique goals—ensuring your brand stands out, engages effectively, and drives measurable success.',
         image: digitalMarketing,
         height: 'h-[400px]',
-        animation1: animationSettings.fadeInTopToBottom,
-        animation2: animationSettings.fadeInBottomToTop,
+        animation1: animationSettings.fadeInBottomToTop,
     },
     {
         id: 5,
@@ -462,8 +458,7 @@ export const servicesData = [
         about: 'At Tricta Technologies, we provide comprehensive software testing services to help you deliver flawless, high-performing applications. From functional and performance testing to security and usability checks, our approach is thorough, efficient, and tailored to your product’s needs—ensuring every release meets the highest standards of quality and user satisfaction.',
         image: testing,
         height: 'h-[400px]',
-        animation1: animationSettings.fadeInTopToBottom,
-        animation2: animationSettings.fadeInBottomToTop,
+        animation1: animationSettings.fadeInBottomToTop,
     },
     {
         id: 6,
@@ -472,8 +467,7 @@ export const servicesData = [
         about: 'At Tricta Technologies, we transform the way you operate by integrating intelligent IoT systems tailored to your needs. From smart devices and real-time analytics to automation and connectivity, our end-to-end IoT solutions help you streamline operations, improve efficiency, and unlock new growth opportunities—driving innovation at every level.',
         image: iot,
         height: 'h-[400px]',
-        animation1: animationSettings.fadeInTopToBottom,
-        animation2: animationSettings.fadeInBottomToTop,
+        animation1: animationSettings.fadeInBottomToTop,
     },
 
     {
@@ -483,8 +477,7 @@ export const servicesData = [
         about: 'At Tricta Technologies, we transform user interactions into meaningful experiences through smart, intuitive UI/UX design. By blending creativity with data-driven insights, our tailored designs enhance engagement, simplify journeys, and empower your business to connect deeper with customers—making every digital touchpoint count.',
         image: design,
         height: 'h-[400px]',
-        animation1: animationSettings.fadeInTopToBottom,
-        animation2: animationSettings.fadeInBottomToTop,
+        animation1: animationSettings.fadeInBottomToTop,
     },
     {
         id: 8,
@@ -493,8 +486,7 @@ export const servicesData = [
         about: 'At Tricta Technologies, we provide expert server and cloud support services to ensure your digital infrastructure is always secure, optimized, and ready for growth. From proactive monitoring and system tuning to cloud migration and data recovery, we manage the backend—so you can power your business without interruption.',
         image: serverSupport,
         height: 'h-[400px]',
-        animation1: animationSettings.fadeInTopToBottom,
-        animation2: animationSettings.fadeInBottomToTop,
+        animation1: animationSettings.fadeInBottomToTop,
     },
     // {
     //     id: 8,

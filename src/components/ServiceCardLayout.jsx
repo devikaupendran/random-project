@@ -3,7 +3,7 @@ import { BsArrowRight } from "react-icons/bs";
 import { motion } from "framer-motion";
 import { Navigate, useNavigate } from "react-router-dom";
 
-const CardLayout = ({ title, subTitle, about, image, reverse, height,animation1,animation2 }) => {
+const CardLayout = ({ title, subTitle, about, image, reverse, height,animation1 }) => {
 
     const navigate = useNavigate()
     return (
@@ -12,7 +12,7 @@ const CardLayout = ({ title, subTitle, about, image, reverse, height,animation1,
                 <img src={image} alt={title} className={`rounded-xl w-full ${height}`} />
             </motion.div>
 
-            <motion.div className="md:w-1/2 mt-10 md:mt-0 text-center md:text-left px-4 max-w-prose " {...animation2}>
+            <motion.div className="md:w-1/2 mt-10 md:mt-0 text-center md:text-left px-4 max-w-prose "{...animation1}>
                 <h2 className="text-2xl font-bold mb-4">{title}</h2>
                 <p className="mb-3 text-justify text-gray-700 ">{subTitle}</p>
                 <p className="mb-6 text-gray-700 text-justify ">{about}</p>
@@ -41,7 +41,7 @@ const ServiceCardLayout = ({ services, limit }) => {
                         reverse={index % 2 !== 0}
                         height={item.height}
                         animation1={item.animation1}
-                        animation2={item.animation2}
+               
                     />
                 ))
             }
